@@ -50,22 +50,6 @@ export default class EditorDemo extends Component {
             readOnly={this.state.readOnly}
             customControls={[
               // eslint-disable-next-line no-unused-vars
-              (setValue, getValue, editorState) => {
-                let choices = new Map([
-                  ['1', {label: '1'}],
-                  ['2', {label: '2'}],
-                  ['3', {label: '3'}],
-                ]);
-                return (
-                  <ButtonGroup key={1}>
-                    <Dropdown
-                      choices={choices}
-                      selectedKey={getValue('my-control-name')}
-                      onChange={(value) => setValue('my-control-name', value)}
-                    />
-                  </ButtonGroup>
-                );
-              },
               <ButtonGroup key={2}>
                 <IconButton
                   label="Remove Link"

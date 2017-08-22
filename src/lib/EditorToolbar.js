@@ -106,12 +106,11 @@ export default class EditorToolbar extends Component {
     if (customControls == null) {
       return;
     }
-    customControls.map((f) => {
+    return customControls.map((f) => {
       switch (typeof f) {
         case 'function': {
           return f(
-            this._setCustomControlState,
-            this._getCustomControlState,
+            this._toggleInlineStyle,
             editorState
           );
         }
@@ -120,16 +119,6 @@ export default class EditorToolbar extends Component {
         }
       }
     });
-  }
-
-  _setCustomControlState(key: string, value: string) {
-    this.setState(({customControlState}) => ({
-      customControlState: {...customControlState, [key]: value},
-    }));
-  }
-
-  _getCustomControlState(key: string) {
-    return this.state.customControlState[key];
   }
 
   _renderBlockTypeDropdown(name: string, toolbarConfig: ToolbarConfig) {
